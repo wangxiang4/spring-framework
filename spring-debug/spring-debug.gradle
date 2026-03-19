@@ -1,0 +1,28 @@
+plugins {
+	id("java")
+}
+
+group = "org.springframework"
+version = "6.2.18-SNAPSHOT"
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+    // Spring地基,提供最底层能力
+    implementation project(':spring-core')
+    // Bean工厂,提供Bean的创建与管理,Ioc容器实现
+    implementation project(':spring-beans')
+    // Ioc容器增强,注解支持,扫描等
+	implementation project(':spring-context')
+    // 有接口反射运行时调用目标 (轻量,稳定,面向接口编程)
+    // 没有接口CGLIB内部使用asm直接修改字节码 (兜底)
+    implementation project(':spring-aop')
+	testImplementation("org.junit.jupiter:junit-jupiter")
+	testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+}
+
+tasks.test {
+	useJUnitPlatform()
+}
