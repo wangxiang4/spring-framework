@@ -19,6 +19,8 @@ dependencies {
     // 有接口反射运行时调用目标 (轻量,稳定,面向接口编程)
     // 没有接口CGLIB内部使用asm直接修改字节码 (兜底)
     implementation project(':spring-aop')
+    // 事物管理器
+    implementation project(':spring-tx')
 	testImplementation("org.junit.jupiter:junit-jupiter")
 	testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }
